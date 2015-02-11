@@ -54,19 +54,19 @@ namespace TvRSS
                 var magnet = item.ElementExtensions.ReadElementExtensions<string>("magnetURI", "http://xmlns.ezrss.it/0.1/");
                 var title = item.Title.Text;
 
+                var hit = false;
                 foreach(var show in Shows){
-                    if (Regex.IsMatch(title, show,RegexOptions.IgnoreCase) &&
+                    if (Regex.IsMatch(title, show, RegexOptions.IgnoreCase) &&
                         item.PublishDate > timestamp)
                     {
                         Console.WriteLine("Found match: " + title);
                         hits.Add(magnet.First().ToString());
+                        hit = true;
+                        break;
                     }
-                    else
-                    {
-                        Console.WriteLine("Miss: " + title);
-                    }
-                    
                 }
+
+                if(!hit) Console.WriteLine("Miss: " + title);
             }
 
             File.WriteAllText(timestampFile, DateTime.Now.ToString());
