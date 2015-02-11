@@ -61,6 +61,10 @@ namespace TvRSS
                         Console.WriteLine("Found match: " + title);
                         hits.Add(magnet.First().ToString());
                     }
+                    else
+                    {
+                        Console.WriteLine("Miss: " + title);
+                    }
                     
                 }
             }

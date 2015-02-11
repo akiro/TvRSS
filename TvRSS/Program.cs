@@ -10,6 +10,8 @@ namespace TvRSS
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Starting..");
+
             var p = new Parser();
             var shows = p.Parse();
 

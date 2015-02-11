@@ -77,8 +77,9 @@
     <Compile Include="Writer.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="TvRSS_TemporaryKey.pfx" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="eztv.xml" />
