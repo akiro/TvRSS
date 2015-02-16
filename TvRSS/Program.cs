@@ -12,7 +12,7 @@ namespace TvRSS
         {
             Console.WriteLine("Starting..");
 
-            var p = new Parser();
+            var p = new ShowRssParser();
             var shows = p.Parse();
 
             var w = new Writer();

@@ -11,11 +11,11 @@ using System.IO;
 
 namespace TvRSS
 {
-    class Parser
+    class KickAssParser : IParser
     {
-        public List<string> Shows { get; set; }
+        private List<string> Shows { get; set; }
 
-        public Parser()
+        public KickAssParser()
         {
             Shows = new List<string>
             {
