@@ -34,9 +34,14 @@ namespace TvRSS
             var hits = new List<string>();
             foreach (var item in feed.Items)
             {
-                var magnet = item.Links.SingleOrDefault(x => x.RelationshipType == "enclosure").Uri.ToString();
-                var title = item.Title.Text;
-                hits.Add(magnet);
+                if (item.PublishDate > timestamp)
+                {
+                    var magnet = item.Links.SingleOrDefault(x => x.RelationshipType == "enclosure").Uri.ToString();
+                    var title = item.Title.Text;
+
+                    Console.WriteLine("Found match: " + title);
+                    hits.Add(magnet);
+                }
             }
 
             File.WriteAllText(timestampFile, DateTime.Now.ToString());
